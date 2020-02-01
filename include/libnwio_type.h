@@ -2,14 +2,23 @@
 #define _NWIO_TYPE_H
 
 #include <stdint.h>
+#include <openssl/ssl.h>
 
 typedef struct _nwio_t nwio_t;
 
 struct _nwio_t {
-  int fd;
+  int socket;
 
-  char     *node;
-  uint32_t service;
+  uint8_t use_tls;
+
+  char *node;
+  char *service;
+
+  size_t addrlen;
+  struct sockaddr *addr;
+
+  SSL     *ssl;
+  SSL_CTX *ssl_ctx;
 };
 
 

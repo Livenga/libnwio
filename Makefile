@@ -20,7 +20,7 @@ $(PRJC):$(OBJS)
 
 
 $(OBJDIR)/%.o:%.c
-	$(CC) -o $@ -c $<
+	$(CC) -o $@ -c $< -fPIC
 
 
 clean:
